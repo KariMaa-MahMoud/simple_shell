@@ -12,23 +12,5 @@
 #include <fcntl.h>
 #include <process.h>
 
-#define MAX_COMMAND_LENGTH 100
-
-void executCmd(char* command) {
-
-    pid_t pid = fork();
-
-    if (pid == -1) {
-        printf("Unable to create a child process\n");
-        exit(1);
-    } else if (pid == 0) {
-
-        system(command);
-        exit(0);
-    } else {
-
-        wait(NULL);
-    }
-}
 
 #endif
